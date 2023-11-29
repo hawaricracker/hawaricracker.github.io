@@ -160,9 +160,11 @@
     
     .container{
         width: 90%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         margin: 2vh;
         box-shadow: 0 1px 10px rgba(0, 0, 0, 1);
         backdrop-filter: blur(3px);
@@ -170,7 +172,6 @@
     }
     
     .content{
-        width: 50%;
         border-radius: 10px;
         overflow: hidden;
         display: flex;
@@ -198,21 +199,21 @@
     }
     
     .menu-button{
-        width: 15%;
+        width: 15vh;
         height: 100%;
         display: flex;
     }
     
     .menu-separator{
         background-color: #455490;
-        width: 3px;
+        width: 4px;
         border-radius: 200px;
         margin-top: 1vh;
         margin-bottom: 1vh;
     }
     
     .menu-image{
-        width: 90%;
+        width: 99%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -231,6 +232,10 @@
         background: rgba(254, 217, 237, 0.7);
     }
     
+    .text p{
+        margin: 2vh;
+    }
+
     .title{
         margin-top: 10vh;
         display: flex;
@@ -241,7 +246,7 @@
         background: rgba(254, 217, 237, 0.7);
         box-shadow: 0 4px 30px rgba(254, 217, 237, 0.1);
         backdrop-filter: blur(5px);
-        width: 80%;
+        width: 90%;
         border: 1px solid rgba(254, 217, 237, 0.3);
         border-radius: 7px;
     }
@@ -251,7 +256,6 @@
     }
     
     .home{
-        width: 100%;
         margin: 2vh;
         color: #455490;
         font-family: Lover;
@@ -259,7 +263,6 @@
     }
     
     .about{
-        width: 100%;
         margin: 2vh;
         color: #455490;
         font-family: Lover;
@@ -267,12 +270,11 @@
     }
     
     .none{
-        width: 100%;
+        width: 50%;
     }
     
     .sakura{
-        width: 100%;
         margin-top: 50px;
-        visibility: hidden;
+        overflow: hidden;
     }
 }
