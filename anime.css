@@ -1,134 +1,278 @@
-@font-face {
-    font-family: 'Lover';
-    src: url('LoversQuarrel-Regular.ttf') format('truetype');
+@media only screen and (min-width: 1080px){
+    @font-face {
+        font-family: 'Lover';
+        src: url('LoversQuarrel-Regular.ttf') format('truetype');
+    }
+    
+    .html{
+        margin: 0;
+    }
+    
+    .body{
+        margin: 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        background-image: url(ayaka1.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #FED9ED;
+    }
+    
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2vh;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 1);
+        backdrop-filter: blur(3px);
+        border-radius: 10px;
+    }
+    
+    .content{
+        width: 30vh;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .navbar{
+        width: 100%;
+        height: 10vh;
+        box-shadow: 0 1px 10px;
+        background: rgba(254, 217, 237, 0.9);
+        display: flex;
+        align-items: center;
+    }
+    
+    .karakter{
+        height: 30vh;
+        width: 30vh;
+    }
+    
+    .karakter img{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .menu-button{
+        width: 15vh;
+        height: 100%;
+        display: flex;
+    }
+    
+    .menu-separator{
+        background-color: #455490;
+        width: 4px;
+        border-radius: 200px;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+    
+    .menu-image{
+        width: 99%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #menu-image{
+        width: 6vh;
+        height: 6vh;
+    }
+    
+    .text{
+        width: 100vh;
+        text-align: center;
+        margin: 2vh;
+        border-radius: 10px;
+        background: rgba(254, 217, 237, 0.7);
+    }
+    
+    .title{
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5vh;
+        background: rgba(254, 217, 237, 0.7);
+        box-shadow: 0 4px 30px rgba(254, 217, 237, 0.1);
+        backdrop-filter: blur(5px);
+        width: 80vh;
+        border: 1px solid rgba(254, 217, 237, 0.3);
+        border-radius: 7px;
+    }
+    
+    .title h1{
+        margin: 0 0;
+    }
+    
+    .home{
+        margin: 2vh;
+        color: #455490;
+        font-family: Lover;
+        font-size: 5vh;
+    }
+    
+    .about{
+        margin: 2vh;
+        color: #455490;
+        font-family: Lover;
+        font-size: 5vh;
+    }
+    
+    .none{
+        width: 150vh;
+    }
+    
+    .sakura{
+        margin-top: 50px;
+        overflow: hidden;
+    }
 }
 
-.html{
-    margin: 0;
-}
-
-.body{
-    margin: 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    background-image: url(ayaka1.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #FED9ED;
-}
-
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2vh;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 1);
-    backdrop-filter: blur(3px);
-    border-radius: 10px;
-}
-
-.content{
-    width: 30vh;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.navbar{
-    width: 100%;
-    height: 10vh;
-    box-shadow: 0 1px 10px;
-    background: rgba(254, 217, 237, 0.9);
-    display: flex;
-    align-items: center;
-}
-
-.karakter{
-    height: 30vh;
-    width: 30vh;
-}
-
-.karakter img{
-    width: 100%;
-    height: 100%;
-}
-
-.menu-button{
-    width: 15vh;
-    height: 100%;
-    display: flex;
-}
-
-.menu-separator{
-    background-color: #455490;
-    width: 4px;
-    border-radius: 200px;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-}
-
-.menu-image{
-    width: 99%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#menu-image{
-    width: 6vh;
-    height: 6vh;
-}
-
-.text{
-    width: 100vh;
-    text-align: center;
-    margin: 2vh;
-    border-radius: 10px;
-    background: rgba(254, 217, 237, 0.7);
-}
-
-.title{
-    margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 5vh;
-    background: rgba(254, 217, 237, 0.7);
-    box-shadow: 0 4px 30px rgba(254, 217, 237, 0.1);
-    backdrop-filter: blur(5px);
-    width: 80vh;
-    border: 1px solid rgba(254, 217, 237, 0.3);
-    border-radius: 7px;
-}
-
-.title h1{
-    margin: 0 0;
-}
-
-.home{
-    margin: 2vh;
-    color: #455490;
-    font-family: Lover;
-    font-size: 33px;
-}
-
-.about{
-    margin: 2vh;
-    color: #455490;
-    font-family: Lover;
-    font-size: 33px;
-}
-
-.none{
-    width: 150vh;
-}
-
-.sakura{
-    margin-top: 50px;
-    overflow: hidden;
+@media only screen and (max-width: 1080px){
+    @font-face {
+        font-family: 'Lover';
+        src: url('LoversQuarrel-Regular.ttf') format('truetype');
+    }
+    
+    .html{
+        margin: 0;
+    }
+    
+    .body{
+        margin: 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background-image: url(ayaka1.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #FED9ED;
+    }
+    
+    .container{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2vh;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 1);
+        backdrop-filter: blur(3px);
+        border-radius: 10px;
+    }
+    
+    .content{
+        width: 50%;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .navbar{
+        width: 100%;
+        height: 10vh;
+        box-shadow: 0 1px 10px;
+        background: rgba(254, 217, 237, 0.9);
+        display: flex;
+        align-items: center;
+    }
+    
+    .karakter{
+        height: 30vh;
+        width: 30vh;
+    }
+    
+    .karakter img{
+        width: 100%;
+        height: 100%;
+    }
+    
+    .menu-button{
+        width: 15%;
+        height: 100%;
+        display: flex;
+    }
+    
+    .menu-separator{
+        background-color: #455490;
+        width: 3px;
+        border-radius: 200px;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+    
+    .menu-image{
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #menu-image{
+        width: 6vh;
+        height: 6vh;
+    }
+    
+    .text{
+        width: 90%;
+        text-align: center;
+        margin: 2vh;
+        border-radius: 10px;
+        background: rgba(254, 217, 237, 0.7);
+    }
+    
+    .title{
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5vh;
+        background: rgba(254, 217, 237, 0.7);
+        box-shadow: 0 4px 30px rgba(254, 217, 237, 0.1);
+        backdrop-filter: blur(5px);
+        width: 80%;
+        border: 1px solid rgba(254, 217, 237, 0.3);
+        border-radius: 7px;
+    }
+    
+    .title h1{
+        margin: 0 0;
+    }
+    
+    .home{
+        width: 100%;
+        margin: 2vh;
+        color: #455490;
+        font-family: Lover;
+        font-size: 5vh;
+    }
+    
+    .about{
+        width: 100%;
+        margin: 2vh;
+        color: #455490;
+        font-family: Lover;
+        font-size: 5vh;
+    }
+    
+    .none{
+        width: 100%;
+    }
+    
+    .sakura{
+        width: 100%;
+        margin-top: 50px;
+        visibility: hidden;
+    }
 }
