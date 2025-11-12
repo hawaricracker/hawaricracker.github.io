@@ -1,0 +1,415 @@
+INDEX
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rumah Sakit Airan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigasi Bar -->
+  <div id="container">
+    <h1>Selamat Datang di Rumah Sakit Airan</h1>
+  </div>
+  <div class="navigation-bar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="data_pasien.html">Data Pasien</a></li>
+      <li><a href="data_hasil_lab.html">Data Hasil Lab</a></li>
+    </ul>
+  </div>
+  <br><br>
+  <!-- Akhir Navigasi Bar -->
+  <div class="">
+    <img src="image_rs.jpg.JPG" alt="" class="image">
+  </div>
+  <!-- Isi Visi Misi -->
+  <div id="container">
+    <h4 class="text-weight-medium">Visi</h4>
+    <h4 class="text-weight-medium">“Rumah Sakit Natar Medika adalah Mengutamakan Pelayanan Kesehatan yang Bermutu, Terjangkau dan Memberikan Kepuasan Terhadap Semua Pengunjung"</h4>
+    <h4 class="text-weight-medium">--------------------</h4>
+    <h4 class="text-weight-medium">Misi</h4>
+    <h4 class="text-weight-medium">
+     "Memberikan Pelayanan yang Optimal dan Baik Bagi Setiap Pencari Jasa Maupun Pengunjung Tanpa Membeda-bedakan yang Kaya, Miskin, Agama, Aliran, Politik Maupun Ras."</h4>
+    <h4 class="text-weight-medium">--------------------</h4>
+  </div>
+  <!-- Akhir Visi Misi -->
+</body>
+</html>
+
+
+
+DATA HASIL LAB
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rumah Sakit Natar Medika</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigasi Bar -->
+  <div id="container">
+    <h1>Selamat Datang di Rumah Sakit Natar Medika</h1>
+  </div>
+  <div class="navigation-bar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="data_pasien.html">Data Pasien</a></li>
+      <li><a href="data_hasil_lab.html">Data Hasil Lab</a></li>
+    </ul>
+  </div>
+  <br><br>
+  <!-- Akhir Navigasi Bar -->
+
+  <!-- Form -->
+  <div class="form">
+    <h1>Input Data Hasil Lab</h1>
+    <label for="hemogoblin">Hemogoblin:</label>
+    <input type="number" id="hemogoblin" required>
+    <label for="hematokrit">Hematokrit:</label>
+    <input type="number" id="hematokrit" required>
+    <label for="leukosit">Leukosit:</label>
+    <input type="number" id="leukosit" required>
+    <label for="eritrosit">Eritrosit:</label>
+    <input type="number" id="eritrosit" required>
+    <label for="trombosit">Trombosit:</label>
+    <input type="number" id="trombosit" required>
+    <!-- tambahkan lagi jika ada yang perlu di diagnosa selain dari ini -->
+    <label for="mcv">Mcv:</label>
+    <input type="number" id="mcv" required>
+    <button id="submitBtn">Simpan Data</button>
+  </div>
+  <!-- Akhir Form -->
+
+  <!-- Table Pasien -->
+  <div id="studentList">
+    <h2>Data Pasien</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Alamat</th>
+          <th>Tanggal</th>
+          <th>Hemogoblin</th>
+          <th>Hematokrit</th>
+          <th>Leukosit</th>
+          <th>Eritrosit</th>
+          <th>Trombosit</th>
+          <!-- tambahkan lagi jika ada yang perlu di diagnosa selain dari ini -->
+          <th>MCV</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="pasienList"></tbody>
+    </table>
+  </div>
+  <!-- Akhir Table Pasien -->
+
+  <!-- Scripts -->
+  <script>
+    // localStorage.clear()
+    let dataPasien = null
+    let isSaveButton = false
+    // Fungsi untuk mengisi formulir dengan data pasien yang akan diedit
+    function editData(id) {
+      let pasienList = localStorage.getItem('pasienList');
+
+      if (pasienList) {
+        pasienList = JSON.parse(pasienList);
+
+        // Cari data pasien dengan id yang sesuai
+        const pasien = pasienList.find((pasien) => pasien.id === id);
+
+        if (pasien) {
+          isSaveButton = true
+          dataPasien = pasien
+          // Isi formulir dengan data pasien yang akan diedit
+          document.getElementById('hemogoblin').value = pasien.hemogoblin;
+          document.getElementById('hematokrit').value = pasien.hematokrit;
+          document.getElementById('leukosit').value = pasien.leukosit;
+          document.getElementById('eritrosit').value = pasien.eritrosit;
+          document.getElementById('trombosit').value = pasien.trombosit;
+          document.getElementById('mcv').value = pasien.mcv;
+          // tambahkan lagi jika ada yang perlu di diagnosa selain dari ini
+        }
+      }
+    }
+
+    // Fungsi untuk menghapus data pasien berdasarkan Id
+    function hapusData(id) {
+      // Mengambil data pasien
+      let pasienList = localStorage.getItem('pasienList');
+
+      if (pasienList) {
+        pasienList = JSON.parse(pasienList);
+
+        // Cari indeks data pasien dengan Id yang sesuai
+        const index = pasienList.findIndex((pasien) => pasien.id === id);
+
+        if (index !== -1) {
+            // Hapus data pasien dari array
+            pasienList.splice(index, 1);
+
+            // Simpan kembali array data pasien ke localStorage
+            localStorage.setItem('pasienList', JSON.stringify(pasienList));
+        }
+      }
+    }
+
+    // Fungsi untuk menampilkan data pasien dari localStorage
+    function tampilkanDatapasien() {
+      const pasienList = localStorage.getItem('pasienList');
+      dataPasien = pasienList
+      const pasienListContainer = document.getElementById('pasienList');
+
+      if (pasienList) {
+        const pasienArray = JSON.parse(pasienList);
+        pasienListContainer.innerHTML = '';
+
+        for (const pasien of pasienArray) {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${pasien.nama}</td>
+            <td>${pasien.alamat}</td>
+            <td>${pasien.tanggal}</td>
+            <td>${pasien.hemogoblin}</td>
+            <td>${pasien.hematokrit}</td>
+            <td>${pasien.leukosit}</td>
+            <td>${pasien.eritrosit}</td>
+            <td>${pasien.trombosit}</td>
+            <td>${pasien.mcv}</td>
+            <td>
+              <button onclick="editData(${pasien.id})">Edit</button>
+              <button onclick="cetakpasien(${pasien.id})">Cetak</button>
+            </td>
+          `;
+          pasienListContainer.appendChild(row);
+        }
+      }
+    }
+
+    function cetakpasien(id) {
+
+      // if (pasienList) {
+        console.log(dataPasien);
+        const listDaftar = JSON.parse(dataPasien);
+        console.log(listDaftar);
+        const selectedpasien = listDaftar.find(pasien => pasien.id == id);
+
+        if (selectedpasien) {
+          // Anda dapat menampilkan pasien yang dipilih ke layar atau mencetaknya ke perangkat cetak
+
+          // Membuka jendela cetakan
+          const printWindow = window.open('', '', 'width=600,height=400');
+          
+          // Menuliskan data yang akan dicetak ke jendela cetakan
+          printWindow.document.write(`
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Cetak</title>
+            <style>
+              .container {
+                font-size: 20px;
+                margin: 25px;
+                width: 100%;
+                text-align: center;
+              }
+              .text-bold {
+                font-weight: bold;
+              }
+              .text-h1 {
+                font-size: 30px;
+              }
+              th {
+                text-align: left;
+                font-weight: 100;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <div class="text-h1 text-bold">Laboratorium RSU Medika</div>
+              <div class="text-bold">Jalan Kenangan No.1, Bandar Lampung</div>
+              <div >No. Izin : 1425/DINKES-LPG/V/2021</div>
+              <div class="">No telp. (0725)864211 | email : Laboratoriummedika_rsulampung@gmail.com</div>
+            </div>
+            <hr>
+            <div class="container">
+              <div class="text-bold">
+                <u>Hasil Pemeriksaan Laboratorium</u>
+              </div>
+              <table align="center" style="margin-top: 30px;">
+                <tbody>
+                  <tr>
+                    <th>Nama</th>
+                    <th>: ${selectedpasien.nama}</th>
+                  </tr>
+                  <tr>
+                    <th>Umur</th>
+                    <th>: ${selectedpasien.umur}</th>
+                  </tr>
+                  <tr>
+                    <th>Jenis Kelamin</th>
+                    <th>: ${selectedpasien.jekel === 'L' ? 'laki - laki' : 'perempuan'}</th>
+                  </tr>
+                  <tr>
+                    <th>Tanggal Periksa</th>
+                    <th>: ${selectedpasien.tanggal}</th>
+                  </tr>
+                  <tr>
+                    <th>Alamat</th>
+                    <th>: ${selectedpasien.alamat}</th>
+                  </tr>
+                  <tr>
+                    <th>Diagnosa</th>
+                    <th>: ${selectedpasien.diagnosa}</th>
+                  </tr>
+                  <tr>
+                    <th>Dokter Pengirim</th>
+                    <th>: ${selectedpasien.dokter_pengirim}</th>
+                  </tr>
+                </tbody>
+              </table>
+              <table border="1" align="center" style="margin-top: 30px;">
+                <tbody>
+                  <tr>
+                    <th>Nama</th>
+                    <th>Hasil</th>
+                    <th>Satuan</th>
+                    <th>Nilai Normal</th>
+                  </tr>
+                  <tr>
+                    <th>Hemoglobin</th>
+                    <th>${selectedpasien.hemogoblin}</th>
+                    <th>g/dl</th>
+                    <th>L : 12,6-17,4 ; P : 11,7-16,1</th>
+                  </tr>
+                  <tr>
+                    <th>Hematokrit</th>
+                    <th>${selectedpasien.hematokrit}</th>
+                    <th>%</th>
+                    <th>L : 36-52 ; P : 34-64</th>
+                  </tr>
+                  <tr>
+                    <th>Leukosit</th>
+                    <th>${selectedpasien.leukosit}</th>
+                    <th>/mikroliter</th>
+                    <th>4.500-10.500</th>
+                  </tr>
+                  <tr>
+                    <th>Eritrosit</th>
+                    <th>${selectedpasien.eritrosit}</th>
+                    <th>/mikroliter</th>
+                    <th>L : 4,7-6,1 juta ; P : 4,2-5,4 juta</th>
+                  </tr>
+                  <tr>
+                    <th>Trombosit</th>
+                    <th>${selectedpasien.trombosit}</th>
+                    <th>/mikroliter</th>
+                    <th>150.000-450.000</th>
+                  </tr>
+                  <tr>
+                    <th>MCV</th>
+                    <th>${selectedpasien.mcv}</th>
+                    <th>/fL</th>
+                    <th>150.000-450.000</th>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="container" style="margin-top: 50px;">
+                <div class="">
+                  <u>Penanggung Jawab</u>
+                </div>
+                <div class="">
+                  <u>${selectedpasien.penanggung_jawab}</u>
+                </div>
+                <div class="">
+                  NIP. 11010001156432
+                </div>
+              </div>
+            </div>
+          </body>
+          </html>`);
+
+          // Mencetak jendela cetakan
+          printWindow.print();
+          printWindow.close();
+        }
+      // }
+    }
+
+
+    // Memberikan Suatu Event saat tombol simpan data di tekan
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      if (isSaveButton) {
+        hapusData(dataPasien.id);
+
+        const hemogoblin = document.getElementById('hemogoblin').value;
+        const hematokrit = document.getElementById('hematokrit').value;
+        const leukosit = document.getElementById('leukosit').value;
+        const eritrosit = document.getElementById('eritrosit').value;
+        const trombosit = document.getElementById('trombosit').value;
+        const mcv = document.getElementById('mcv').value;
+        const id = dataPasien.id;
+        const nama = dataPasien.nama;
+        const umur = dataPasien.umur;
+        const alamat = dataPasien.alamat;
+        const jekel = dataPasien.jekel;
+        const tanggal = dataPasien.tanggal;
+        const diagnosa = dataPasien.diagnosa;
+        const dokter_pengirim = dataPasien.dokter_pengirim;
+        const penanggung_jawab = dataPasien.penanggung_jawab;
+
+        let pasienList = localStorage.getItem('pasienList');
+        if (!pasienList) {
+          pasienList = [];
+        } else {
+          pasienList = JSON.parse(pasienList);
+        }
+        const pasien = {
+          id,
+          nama,
+          umur,
+          alamat,
+          jekel,
+          tanggal,
+          diagnosa,
+          dokter_pengirim,
+          penanggung_jawab,
+          hemogoblin,
+          hematokrit,
+          leukosit,
+          eritrosit,
+          trombosit,
+          mcv
+        };
+        pasienList.push(pasien);
+        localStorage.setItem('pasienList', JSON.stringify(pasienList));
+
+        // Bersihkan input
+        document.getElementById('hemogoblin').value = '';
+        document.getElementById('hematokrit').value = '';
+        document.getElementById('leukosit').value = '';
+        document.getElementById('eritrosit').value = '';
+        document.getElementById('trombosit').value = '';
+        document.getElementById('mcv').value = '';
+
+        // Tampilkan data pasien
+        tampilkanDatapasien();
+        isSaveButton = false
+      } else {
+        alert('Pilih data pasien yang ingin disimpan')
+      }
+    });
+
+    // Panggil fungsi untuk menampilkan data pasien saat halaman pertama kali dimuat
+    tampilkanDatapasien();
+  </script>
+</body>
+</html>

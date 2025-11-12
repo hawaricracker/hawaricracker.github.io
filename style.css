@@ -1,0 +1,223 @@
+body {
+    background-color: #342331;
+    margin: 0;
+}
+
+.main-div {
+    background-image: url(Assets/Background.jpeg);
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    padding-top: 5px;
+    height: 9vh;
+}
+
+.nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: center
+}
+
+.nav-logo img {
+    width: 90px;
+}
+
+.list-menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 3vw;
+}
+
+.list-menu li {
+    margin-right: 10px;
+}
+
+.list-menu li a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: 'Tahoma', 'Trebuchet MS', sans-serif;
+}
+
+.list-menu li a:hover{
+    text-decoration: none;
+    color: #9c0606;
+    font-family: 'Tahoma', 'Trebuchet MS', sans-serif;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: width 0.5s ease;
+    width: 20%;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+.search-container input {
+    width: 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    visibility: hidden; 
+    opacity: 0;
+    transition: width 0.5s ease, opacity 0.5s ease, visibility 0s 0.5s; 
+}
+
+.search-container.open input {
+    width: 200px; 
+    visibility: visible;
+    opacity: 1;
+    transition: width 0.5s ease, opacity 0.5s ease;
+}
+
+.search-container button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.search-container button img {
+    width: 20px;
+    color: white;
+}
+
+.section1 { 
+    width: 100%;
+    height: 90vh;
+    display: flex;
+}
+
+.main-title{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding-left: 3vw;
+    flex-direction: column;
+}
+
+.main-title h1{
+    color: whitesmoke;
+    font-size: 4vw;
+    font-family: 'Yu Gothic UI Semibold';
+    margin-bottom: 20px;
+}
+
+.main-title p{
+    color: whitesmoke;
+    font-family: 'Yu Gothic UI Semibold';
+    padding: 0;
+    margin: 0;
+}
+
+.main-title button{
+    width: 10vw;
+    height: 40px;
+    background-color: pink;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Yu Gothic UI Semibold';
+    margin-top: 25px;
+}
+
+.main-title button:hover{
+    background-color: #f58ce2;
+    scale: 1.05;
+}
+
+.section2{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.mascot{
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mascot h1{
+    font-family: 'Yu Gothic UI Semibold';
+    color: whitesmoke;
+    margin-top: 3vh;
+    height: 10%;
+    margin-bottom: 8vh;
+}
+
+.mascot img{
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.mascot img.hide {
+    transform: translateX(-50%) scale(0.8); /* Geser ke kiri dan mengecil */
+    opacity: 0; /* Menghilang */
+}
+
+.mascot img.show {
+    transform: translateX(0) scale(1); /* Kembali ke ukuran normal */
+    opacity: 1; /* Muncul */
+}
+
+.mascot img.enter {
+    transform: translateX(50%) scale(1.2); /* Muncul dari kanan dan membesar */
+    opacity: 0;
+}
+
+.mascot h2{
+    font-family: 'Yu Gothic UI Semibold';
+    color: whitesmoke;
+    height: 10%;
+    margin: 0;
+}
+
+.sec2button{
+    width: 5%;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+}
+
+.sec2button button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.activities{
+    width: 65%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8vh;
+    background-color: #6b2b5f;
+    margin-top: 3px;
+}
+
+.activities h1{
+    font-family: 'Yu Gothic UI Semibold';
+    color: whitesmoke;
+    margin-top: 3vh;
+}
