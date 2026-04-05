@@ -1,9 +1,9 @@
  @import "tailwindcss";
 
-/*#Kelopak, #Tangkai, #Daun_0, #Daun_1 {
+#Tulip {
   animation: sway 3s ease-in-out infinite alternate-reverse;
   transform-origin: center bottom;
-}*/
+}
 
 /* Animasi transisi untuk semua elemen */
 #Tangkai, #Daun_0, #Daun_1, #Kelopak_tengah, #Kelopak_kiri, #Kelopak_kanan {
