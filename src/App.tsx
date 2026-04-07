@@ -4,14 +4,25 @@ import './index.css'
 function App() {
   const [showFlowers, setShowFlowers] = useState(false)
   const [utuh, setUtuh] = useState(false)
+  const [transition, setTransition] = useState(false)
 
   const handleClick = () => {
+    setTransition(true)
+    setTimeout(() => {
     setShowFlowers(true)
-    setTimeout(() => setUtuh(true), 0)
+    setTimeout(() => setUtuh(true), 100)
+    }, 1000)
   }
 
   return (
   <div className={`flex flex-col items-center h-screen w-full overflow-hidden ${utuh ? 'flower-utuh' : ''}`}>
+    {/* Transition circle */}
+      {transition && !showFlowers &&(
+      <div className="fixed inset-0 z-50 pointer-events-none">
+      <div className="transition-circle"></div>
+      </div>
+      )}
+
     {!showFlowers &&(
     <div className="flex w-[100%] h-[100%] justify-center items-center bg-[#272727] relative">
       <h1 className="absolute z-2 font-dune text-white left-[5%] top-[13%] text-[10vw] text-slide-left text-welcome">Welcome</h1>
