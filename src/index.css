@@ -1,4 +1,64 @@
- @import "tailwindcss";
+@import "tailwindcss";
+
+@theme {
+  --font-dune: "Dune Rise", sans-serif;
+}
+
+@font-face {
+  font-family: "Dune Rise";
+  src: url("./assets/fonts/Dune_Rise.ttf") format("truetype");
+}
+
+/* Animasi untuk dekorasi star - fade in */
+.star-decor {
+  opacity: 0;
+  animation: star-fade-in 1.5s ease-out forwards;
+}
+
+.star-decor:nth-child(5) { animation-delay: 0.2s; }
+.star-decor:nth-child(6) { animation-delay: 0.4s; }
+.star-decor:nth-child(7) { animation-delay: 0.6s; }
+.star-decor:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes star-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animasi teks dari kiri */
+.text-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: text-slide-in 0.8s ease-out forwards;
+}
+
+@keyframes text-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Delay untuk setiap teks */
+.text-welcome { animation-delay: 1.2s; }
+.text-mein { animation-delay: 1.6s; }
+.text-shall { animation-delay: 2s; }
+
+/* Button fade in */
+.button-fade-in {
+  opacity: 0;
+  animation: button-fade-in 0.5s ease-out forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes button-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 #Tulip {
   animation: sway 3s ease-in-out infinite alternate-reverse;

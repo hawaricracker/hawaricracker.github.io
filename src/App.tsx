@@ -11,12 +11,17 @@ function App() {
   }
 
   return (
-  <div className={`flex flex-col items-center h-screen w-full ${utuh ? 'flower-utuh' : ''}`}>
+  <div className={`flex flex-col items-center h-screen w-full overflow-hidden ${utuh ? 'flower-utuh' : ''}`}>
     {!showFlowers &&(
-    <div className="flex w-[100%] h-[100%] justify-center items-center bg-[#CBF3BB]">
-      <img src="/Start_button.svg" alt="Start" className="w-[80px] h-auto active:scale-110" onClick={handleClick}/>
-      <img src="Star.svg" alt="Star" className="absolute left-[-25%] bottom-[-20%] w-[75vw] h-auto"/>
-      <img src="Star.svg" alt="Star" className="absolute right-[-10%] top-[-10%] w-[40vw] h-auto"/>
+    <div className="flex w-[100%] h-[100%] justify-center items-center bg-[#272727] relative">
+      <h1 className="absolute z-2 font-dune text-white left-[5%] top-[13%] text-[10vw] text-slide-left text-welcome">Welcome</h1>
+      <h1 className="absolute z-2 font-dune text-white left-[5%] top-[20%] text-[6vw] text-slide-left text-mein">Mein Fraulein</h1>
+      <h1 className="absolute z-2 font-dune text-white left-[5%] top-[35%] text-[6vw] text-slide-left text-shall">Shall we start?</h1>
+      <img src="/Start_button.svg" alt="Start" className="w-[80px] h-auto active:scale-110 button-fade-in cursor-pointer" onClick={handleClick}/>
+      <img src="Star.svg" alt="Star" className="absolute left-[-25%] bottom-[-20%] w-[75vw] h-auto star-decor"/>
+      <img src="Star.svg" alt="Star" className="absolute right-[-10%] top-[-10%] w-[40vw] h-auto star-decor"/>
+      <img src="Star1.svg" alt="Star" className="absolute right-[20%] bottom-[30%] w-[10vw] h-auto star-decor"/>
+      <img src="Star1.svg" alt="Star" className="absolute right-[10%] bottom-[20%] w-[5vw] h-auto star-decor"/>
     </div>)}
     {showFlowers &&(
     <div className="flex justify-center items-end h-[100%] w-[100%]">
