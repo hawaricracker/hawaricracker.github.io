@@ -2,21 +2,24 @@ import { useState } from 'react'
 import './index.css'
 
 function App() {
+  const [showFlowers, setShowFlowers] = useState(false)
   const [utuh, setUtuh] = useState(false)
 
+  const handleClick = () => {
+    setShowFlowers(true)
+    setTimeout(() => setUtuh(true), 0)
+  }
+
   return (
-    <div className={`flex flex-col items-center h-screen w-full ${utuh ? 'flower-utuh' : ''}`}>
-      <div className="flex w-[100%] h-[15%] justify-center items-center gap-4">
-        {!utuh && (
-          <button
-            onClick={() => setUtuh(!utuh)}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Mulai!!!
-          </button>
-        )}
-      </div>
-    <div className="flex justify-center items-end h-[85%] w-[100%]">
+  <div className={`flex flex-col items-center h-screen w-full ${utuh ? 'flower-utuh' : ''}`}>
+    {!showFlowers &&(
+    <div className="flex w-[100%] h-[100%] justify-center items-center bg-[#CBF3BB]">
+      <img src="/Start_button.svg" alt="Start" className="w-[80px] h-auto active:scale-110" onClick={handleClick}/>
+      <img src="Star.svg" alt="Star" className="absolute left-[-25%] bottom-[-20%] w-[75vw] h-auto"/>
+      <img src="Star.svg" alt="Star" className="absolute right-[-10%] top-[-10%] w-[40vw] h-auto"/>
+    </div>)}
+    {showFlowers &&(
+    <div className="flex justify-center items-end h-[100%] w-[100%]">
       <svg viewBox="0 0 518 796" className="w-[44%] z-0 h-auto absolute left-[-7%]" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Tulip">
       <rect id="Tangkai" x="232.119" y="314" width="54" height="482" fill="#3D7B19"/>
@@ -77,7 +80,7 @@ function App() {
       <path id="Daun_0" d="M170.606 556.011C168.09 576.471 176.28 598.706 194.172 614.259C212.064 629.813 235.222 634.828 255.133 629.489C257.649 609.029 249.46 586.794 231.568 571.241C213.676 555.688 190.517 550.671 170.606 556.011Z" fill="#0C4C07"/>
       </g>
       </svg>
-    </div>
+    </div>)}
   </div>  
   )
 }
