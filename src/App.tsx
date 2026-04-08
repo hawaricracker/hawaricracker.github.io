@@ -5,7 +5,14 @@ function App() {
   const [showFlowers, setShowFlowers] = useState(false)
   const [utuh, setUtuh] = useState(false)
   const [transition, setTransition] = useState(false)
+  const [questionpage, setQuestionPage] = useState(false)
 
+  const handleClick = () => {
+    setTransition(true)
+    setTimeout(() => {setQuestionPage(true)}, 1000)
+  }
+
+  /*
   const handleClick = () => {
     setTransition(true)
     setTimeout(() => {
@@ -13,17 +20,18 @@ function App() {
     setTimeout(() => setUtuh(true), 100)
     }, 1000)
   }
+  */
 
   return (
   <div className={`flex flex-col items-center h-screen w-full overflow-hidden ${utuh ? 'flower-utuh' : ''}`}>
     {/* Transition circle */}
-      {transition && !showFlowers &&(
-      <div className="fixed inset-0 z-50 pointer-events-none">
-      <div className="transition-circle"></div>
-      </div>
-      )}
+    {transition && !questionpage &&(
+    <div className="fixed inset-0 z-50 pointer-events-none">
+    <div className="transition-circle"></div>
+    </div>
+    )}
 
-    {!showFlowers &&(
+    {!questionpage &&(
     <div className="flex w-[100%] h-[100%] justify-center items-center bg-[#272727] relative">
       <h1 className="absolute z-2 font-dune text-white left-[5%] top-[13%] text-[10vw] text-slide-left text-welcome">Welcome</h1>
       <h1 className="absolute z-2 font-dune text-white left-[5%] top-[20%] text-[6vw] text-slide-left text-mein">Mein Fraulein</h1>
@@ -34,6 +42,7 @@ function App() {
       <img src="Star1.svg" alt="Star" className="absolute right-[20%] bottom-[30%] w-[10vw] h-auto star-decor"/>
       <img src="Star1.svg" alt="Star" className="absolute right-[10%] bottom-[20%] w-[5vw] h-auto star-decor"/>
     </div>)}
+    
     {showFlowers &&(
     <div className="flex justify-center items-end h-[100%] w-[100%]">
       <svg viewBox="0 0 518 796" className="w-[44%] z-0 h-auto absolute left-[-7%]" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,6 +106,19 @@ function App() {
       </g>
       </svg>
     </div>)}
+
+    {questionpage && (
+    <div className="flex justify-center items-center gap-10 h-[100%] w-[100%] bg-[#D9D9D9]">
+      <div className="flex flex-col gap-3">
+        <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
+        <button className="bg-black text-white rounded-[5px]">Pilih</button>
+      </div>
+      <div className="flex flex-col gap-3">
+        <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
+        <button className="bg-black text-white rounded-[5px]">Pilih</button>
+      </div>
+    </div>
+    )}
   </div>  
   )
 }
