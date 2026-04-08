@@ -12,7 +12,6 @@ function App() {
     setTimeout(() => {setQuestionPage(true)}, 1000)
   }
 
-  
   const handleClick2 = () => {
     setTransition(true)
     setTimeout(() => {
@@ -110,7 +109,7 @@ function App() {
     <div className="flex justify-center items-center gap-10 h-[100%] w-[100%] bg-[#D9D9D9]">
       <div className="flex flex-col gap-3">
         <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
-        <button className="bg-black text-white rounded-[5px]">Pilih</button>
+        <button className="bg-black text-white rounded-[5px]" onClick={handleClick2}>Pilih</button>
       </div>
       <div className="flex flex-col gap-3">
         <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
