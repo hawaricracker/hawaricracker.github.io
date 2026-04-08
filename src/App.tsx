@@ -12,15 +12,14 @@ function App() {
     setTimeout(() => {setQuestionPage(true)}, 1000)
   }
 
-  /*
-  const handleClick = () => {
+  
+  const handleClick2 = () => {
     setTransition(true)
     setTimeout(() => {
     setShowFlowers(true)
     setTimeout(() => setUtuh(true), 100)
     }, 1000)
   }
-  */
 
   return (
   <div className={`flex flex-col items-center h-screen w-full overflow-hidden ${utuh ? 'flower-utuh' : ''}`}>
