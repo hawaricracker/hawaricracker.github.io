@@ -2,26 +2,29 @@ import { useState } from 'react'
 import './index.css'
 
 function App() {
-  const [showFlowers, setShowFlowers] = useState(false)
-  const [utuh, setUtuh] = useState(false)
+  /*const [showFlowers, setShowFlowers] = useState(false)
+  const [utuh, setUtuh] = useState(false)*/
   const [transition, setTransition] = useState(false)
   const [questionpage, setQuestionPage] = useState(false)
+  const [gif, setGif] = useState('patapata.gif')
+  const [idx_q, setIdxq] = useState(0)
 
   const handleClick = () => {
     setTransition(true)
     setTimeout(() => {setQuestionPage(true)}, 1000)
+    setTimeout(() => {setTransition(false)}, 1000)
   }
 
-  const handleClick2 = () => {
+  /*const handleClick2 = () => {
     setTransition(true)
     setTimeout(() => {
     setShowFlowers(true)
     setTimeout(() => setUtuh(true), 100)
     }, 1000)
-  }
+  }*/
 
   return (
-  <div className={`flex flex-col items-center h-screen w-full overflow-hidden ${utuh ? 'flower-utuh' : ''}`}>
+  <div className={`flex flex-col items-center h-screen w-full overflow-hidden`}>
     {/* Transition circle */}
     {transition && !questionpage &&(
     <div className="fixed inset-0 z-50 pointer-events-none">
@@ -41,8 +44,8 @@ function App() {
       <img src="Star1.svg" alt="Star" className="absolute right-[10%] bottom-[20%] w-[5vw] h-auto star-decor"/>
     </div>)}
     
-    {showFlowers &&(
-    <div className="flex justify-center items-end h-[100%] w-[100%]">
+    {/*{showFlowers &&(
+    <div className={`flex justify-center items-end h-[100%] w-[100%] ${utuh ? 'flower-utuh' : ''}`}>
       <svg viewBox="0 0 518 796" className="w-[44%] z-0 h-auto absolute left-[-7%]" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="Tulip">
       <rect id="Tangkai" x="232.119" y="314" width="54" height="482" fill="#3D7B19"/>
@@ -103,17 +106,45 @@ function App() {
       <path id="Daun_0" d="M170.606 556.011C168.09 576.471 176.28 598.706 194.172 614.259C212.064 629.813 235.222 634.828 255.133 629.489C257.649 609.029 249.46 586.794 231.568 571.241C213.676 555.688 190.517 550.671 170.606 556.011Z" fill="#0C4C07"/>
       </g>
       </svg>
-    </div>)}
+    </div>)}*/}
 
     {questionpage && (
-    <div className="flex justify-center items-center gap-10 h-[100%] w-[100%] bg-[#D9D9D9]">
-      <div className="flex flex-col gap-3">
-        <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
-        <button className="bg-black text-white rounded-[5px]" onClick={handleClick2}>Pilih</button>
-      </div>
-      <div className="flex flex-col gap-3">
-        <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
-        <button className="bg-black text-white rounded-[5px]">Pilih</button>
+    <div className="flex flex-col justify-center items-center gap-5 h-[100%] w-[100%] bg-[#D9D9D9]">
+      <h1 id='pageqheader' className="absolute z-2 font-dune text-black left-[5%] top-[5%] text-[7vw] text-slide-left">Answer these question</h1>
+      {idx_q == 0 && (<div className='flex flex-col question-slide-in'>
+        <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
+          <p className="text-justify font-dune">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
+        </div>
+        <div className="flex gap-10 choices justify-center items-center">
+          <div className="flex flex-col gap-3 active:scale-110">
+            <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
+            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('nisekoi.gif'), setIdxq(1)}}>Pilih</button>
+          </div>
+          <div className="flex flex-col gap-3 active:scale-110">
+            <img src="Hcl_mask.svg" alt="Luka" className="w-[35vw] h-auto"/>
+            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('happy.gif'), setIdxq(1)}}>Pilih</button>
+          </div>
+        </div>
+      </div>)}
+      {idx_q == 1 && (<div className='flex flex-col question-slide-in'>
+        <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
+          <p className="text-justify font-dune">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
+        </div>
+        <div className="flex gap-10 choices justify-center items-center">
+          <div className="flex flex-col gap-3 active:scale-110">
+            <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
+            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('nisekoi.gif'), setIdxq(1)}}>Pilih</button>
+          </div>
+          <div className="flex flex-col gap-3 active:scale-110">
+            <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
+            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('happy.gif'), setIdxq(1)}}>Pilih</button>
+          </div>
+        </div>
+      </div>)}
+      <div className='flex flex-col justify-center items-center'>
+        {gif == 'nisekoi.gif' && (<h1 className='absolute bottom-[27%] font-dune text-[5vw] bg-red-500 rounded-[5px] p-2'>Oh Gitu Ya....</h1>)}
+        <img className="absolute bottom-[10%] w-auto h-[15vh]" src={gif} alt="patapata" />
+        <button className='absolute bottom-[3%] bg-blue-500 p-2' onClick={() => {setGif('patapata.gif'), setIdxq(0)}}>blbl</button>
       </div>
     </div>
     )}
