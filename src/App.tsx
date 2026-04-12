@@ -118,13 +118,13 @@ function App() {
           <p className="text-justify font-dune text-[4vw]">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
         </div>
         <div className="flex gap-10 choices justify-center items-center">
-          <div className="flex flex-col gap-3 active:scale-110">
+          <div className="flex flex-col gap-3 active:scale-110" onClick={() => {setGif('nisekoi.gif'), setIdxq(1)}}>
             <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
-            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('nisekoi.gif'), setIdxq(1)}}>Pilih</button>
+            <button className="bg-black text-white rounded-[5px] font-dune">Pilih</button>
           </div>
-          <div className="flex flex-col gap-3 active:scale-110">
+          <div className="flex flex-col gap-3 active:scale-110" onClick={() => {setGif('happy.gif'), setIdxq(1)}}>
             <img src="Hcl_mask.svg" alt="Luka" className="w-[35vw] h-auto"/>
-            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('happy.gif'), setIdxq(1)}}>Pilih</button>
+            <button className="bg-black text-white rounded-[5px] font-dune">Pilih</button>
           </div>
         </div>
       </div>)}
@@ -133,13 +133,13 @@ function App() {
           <p className="text-justify font-dune text-[4vw]">Mana gaya rambut yang lebih disukai Hawari?</p>
         </div>
         <div className="flex gap-10 choices justify-center items-center p-5">
-          <div className="flex flex-col gap-3 active:scale-110">
+          <div className="flex flex-col gap-3 active:scale-110" onClick={() => {setGif('nisekoi.gif'), setIdxq(1)}}>
             <img src="Reva1.svg" alt="Luka" className="w-[35vw] h-auto"/>
-            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('nisekoi.gif'), setIdxq(1)}}>Pilih</button>
+            <button className="bg-black text-white rounded-[5px] font-dune">Pilih</button>
           </div>
-          <div className="flex flex-col gap-3 active:scale-110">
+          <div className="flex flex-col gap-3 active:scale-110" onClick={() => {setLose('lose')}}>
             <img src="Reva2.svg" alt="Luka" className="w-[35vw] h-auto"/>
-            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setLose('lose')}}>Pilih</button>
+            <button className="bg-black text-white rounded-[5px] font-dune">Pilih</button>
           </div>
         </div>
       </div>)}
