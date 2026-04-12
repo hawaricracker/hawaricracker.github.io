@@ -109,12 +109,12 @@ function App() {
     </div>)}*/}
 
     {questionpage && (
-    <div className="flex flex-col justify-center items-center gap-5 h-[100%] w-[100%] bg-[#D9D9D9]">
-      <h1 id='pageqheader' className="absolute z-2 font-dune text-black left-[5%] top-[5%] text-[7vw] text-slide-left">Answer these question</h1>
+    <div className="flex flex-col items-center gap-5 h-[100%] w-[100%] bg-[#D9D9D9]">
+      <h1 id='pageqheader' className="mt-5 font-dune text-black text-[6vw] text-slide-left p-3">Answer these question</h1>
       {gif == 'nisekoi.gif' && (<h1 className='font-dune text-[5vw] bg-red-500 rounded-[5px] p-2'>Oh Gitu Ya....</h1>)}
       {idx_q == 0 && (<div className='flex flex-col question-slide-in'>
         <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
-          <p className="text-justify font-dune">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
+          <p className="text-justify font-dune text-[4vw]">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
         </div>
         <div className="flex gap-10 choices justify-center items-center">
           <div className="flex flex-col gap-3 active:scale-110">
@@ -129,7 +129,7 @@ function App() {
       </div>)}
       {idx_q == 1 && (<div className='flex flex-col question-slide-in'>
         <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
-          <p className="text-justify font-dune">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
+          <p className="text-justify font-dune text-[4vw]">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
         </div>
         <div className="flex gap-10 choices justify-center items-center">
           <div className="flex flex-col gap-3 active:scale-110">
@@ -142,9 +142,9 @@ function App() {
           </div>
         </div>
       </div>)}
-      <div className='flex flex-col justify-center items-center'>
-        <img className="absolute bottom-[10%] w-auto h-[15vh]" src={gif} alt="patapata" />
-        <button className='absolute bottom-[3%] bg-blue-500 p-2' onClick={() => {setGif('patapata.gif'), setIdxq(0)}}>blbl</button>
+      <div className='flex flex-col justify-center items-center gap-3'>
+        <img className="w-auto h-[15vh]" src={gif} alt="patapata" />
+        <button className='bg-blue-500 p-2' onClick={() => {setGif('patapata.gif'), setIdxq(0)}}>blbl</button>
       </div>
     </div>
     )}
