@@ -8,6 +8,7 @@ function App() {
   const [questionpage, setQuestionPage] = useState(false)
   const [gif, setGif] = useState('patapata.gif')
   const [idx_q, setIdxq] = useState(0)
+  const [lose, setLose] = useState('-')
 
   const handleClick = () => {
     setTransition(true)
@@ -129,16 +130,16 @@ function App() {
       </div>)}
       {idx_q == 1 && (<div className='flex flex-col question-slide-in'>
         <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
-          <p className="text-justify font-dune text-[4vw]">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
+          <p className="text-justify font-dune text-[4vw]">Mana gaya rambut yang lebih disukai Hawari?</p>
         </div>
-        <div className="flex gap-10 choices justify-center items-center">
+        <div className="flex gap-10 choices justify-center items-center p-5">
           <div className="flex flex-col gap-3 active:scale-110">
-            <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
+            <img src="Reva1.svg" alt="Luka" className="w-[35vw] h-auto"/>
             <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('nisekoi.gif'), setIdxq(1)}}>Pilih</button>
           </div>
           <div className="flex flex-col gap-3 active:scale-110">
-            <img src="Luka.svg" alt="Luka" className="w-[35vw] h-auto"/>
-            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setGif('happy.gif'), setIdxq(1)}}>Pilih</button>
+            <img src="Reva2.svg" alt="Luka" className="w-[35vw] h-auto"/>
+            <button className="bg-black text-white rounded-[5px] font-dune" onClick={() => {setLose('lose')}}>Pilih</button>
           </div>
         </div>
       </div>)}
@@ -147,6 +148,16 @@ function App() {
         <button className='bg-blue-500 p-2' onClick={() => {setGif('patapata.gif'), setIdxq(0)}}>blbl</button>
       </div>
     </div>
+    )}
+
+    {lose == 'lose' && (
+      <div className='absolute z-30 w-[100%] h-[100%] bg-red-500'>
+        <div className='flex flex-col justify-center items-center w-[100%] h-[100%] p-3'>
+          <h1 className='text-[10vw]'>YOU LOSE!!!!!!</h1>
+          <img className="w-auto h-[15vh]" src='amogus.gif' alt="patapata" />
+          <button className='bg-blue-500 p-2' onClick={() => {setGif('patapata.gif'), setIdxq(0), setLose('-')}}>Reset?</button>
+        </div>
+      </div>
     )}
   </div>  
   )
