@@ -9,7 +9,7 @@
   src: url("./assets/fonts/Dune_Rise.ttf") format("truetype");
 }
 
-/* Animasi untuk dekorasi star - fade in */
+/* ── Star decorations ── */
 .star-decor {
   opacity: 0;
   animation: star-fade-in 1.5s ease-out forwards;
@@ -28,10 +28,10 @@
 
 @keyframes star-fade-in {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
-/* Animasi teks dari kiri */
+/* ── Teks slide dari kiri ── */
 .text-slide-left {
   opacity: 0;
   transform: translateX(-50px);
@@ -39,22 +39,15 @@
 }
 
 @keyframes text-slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
-/* Delay untuk setiap teks */
 .text-welcome { animation-delay: 1.2s; }
-.text-mein { animation-delay: 1.6s; }
-.text-shall { animation-delay: 2s; }
+.text-mein    { animation-delay: 1.6s; }
+.text-shall   { animation-delay: 2s; }
 
-/* Button fade in */
+/* ── Button fade in ── */
 .button-fade-in {
   opacity: 0;
   animation: button-fade-in 0.5s ease-out forwards;
@@ -63,10 +56,10 @@
 
 @keyframes button-fade-in {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
-/* Transition circle - expand from center */
+/* ── Transition circle ── */
 .transition-circle {
   position: absolute;
   top: 50%;
@@ -80,93 +73,89 @@
 }
 
 @keyframes circle-expand {
-  0% {
-  width: 0;
-  height: 0;
-  }
-  100% {
-  width: 300vw;
-  height: 300vw;
-  }
+  0%   { width: 0;     height: 0; }
+  100% { width: 300vw; height: 300vw; }
 }
 
-#Tulip {
+/* ── Tulip sway (pakai class, bukan id) ── */
+.tulip-group {
   animation: sway 3s ease-in-out infinite alternate-reverse;
   transform-origin: center bottom;
 }
 
-/* Animasi transisi untuk semua elemen */
-#Tangkai, #Daun_0, #Daun_1, #Kelopak_tengah, #Kelopak_kiri, #Kelopak_kanan {
-  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.5, 0, 1, 0);
+@keyframes sway {
+  0%,  100% { transform: rotate(0deg); }
+  33%        { transform: rotate(5deg); }
+  66%        { transform: rotate(-5deg); }
 }
 
-/* Posisi default = hancur. Saat .flower-utuh aktif, transform di-disable */
-.flower-utuh #Tangkai,
-.flower-utuh #Daun_0,
-.flower-utuh #Daun_1,
-.flower-utuh #Kelopak_tengah,
-.flower-utuh #Kelopak_kiri,
-.flower-utuh #Kelopak_kanan {
-  transform: none !important;
-  opacity: 1;
+/* ── Transisi tiap elemen tulip ── */
+.tulip-tangkai,
+.tulip-daun0,
+.tulip-daun1,
+.tulip-kelopak-tengah,
+.tulip-kelopak-kiri,
+.tulip-kelopak-kanan {
+  transition:
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity  1s cubic-bezier(0.5, 0, 1, 0);
 }
 
-/*posisi elemen saat hancur-start*/
-#Tangkai {
+/* ── Posisi HANCUR (default, sebelum .flower-utuh aktif) ── */
+.tulip-tangkai {
   transform: translateY(45%) rotate(90deg);
   transform-origin: center;
   transform-box: fill-box;
   opacity: 0;
 }
 
-#Daun_0 {
+.tulip-daun0 {
   transform: translateY(215%) translateX(-90%) rotate(-10deg);
   transform-origin: center;
   transform-box: fill-box;
   opacity: 0;
 }
 
-#Daun_1 {
+.tulip-daun1 {
   transform: translateY(350%) translateX(90%) rotate(-10deg);
   transform-origin: center;
   transform-box: fill-box;
   opacity: 0;
 }
 
-#Kelopak_tengah {
+.tulip-kelopak-tengah {
   transform: translateY(130%) translateX(10%) rotate(-10deg);
   transform-origin: center;
   transform-box: fill-box;
   opacity: 0;
 }
 
-#Kelopak_kiri {
+.tulip-kelopak-kiri {
   transform: translateY(150%) translateX(-70%) rotate(-30deg);
   transform-origin: center;
   transform-box: fill-box;
   opacity: 0;
 }
 
-#Kelopak_kanan {
+.tulip-kelopak-kanan {
   transform: translateY(150%) translateX(-70%) rotate(-50deg);
   transform-origin: center;
   transform-box: fill-box;
   opacity: 0;
 }
-/*posisi elemen saat hancur-end*/
 
-@keyframes sway {
-  0%, 100% { transform: rotate(0deg); }
-  33% { transform: rotate(5deg); }
-  66% { transform: rotate(-5deg); }
+/* ── Posisi UTUH (saat .flower-utuh aktif di wrapper) ── */
+.flower-utuh .tulip-tangkai,
+.flower-utuh .tulip-daun0,
+.flower-utuh .tulip-daun1,
+.flower-utuh .tulip-kelopak-tengah,
+.flower-utuh .tulip-kelopak-kiri,
+.flower-utuh .tulip-kelopak-kanan {
+  transform: none !important;
+  opacity: 1;
 }
 
-@keyframes leaf-wave {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(-3deg) scale(1.02); }
-}
-
-/* Animasi muncul dari kanan dengan fade in */
+/* ── Question slide in dari kanan ── */
 .question-slide-in {
   opacity: 0;
   transform: translateX(50px);
@@ -174,12 +163,20 @@
 }
 
 @keyframes question-slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.petal-fly {
+  position: absolute;
+  bottom: -10%;
+  pointer-events: none;
+  animation: petal-fly-up var(--duration) ease-out var(--delay) forwards;
+  opacity: 0;
+}
+
+@keyframes petal-fly-up {
+  0%   { transform: translateY(0)    rotate(0deg)   scale(0.8); opacity: 1; }
+  60%  { opacity: 1; }
+  100% { transform: translateY(-110vh) rotate(var(--spin)) scale(1.2); opacity: 0; }
 }
