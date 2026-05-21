@@ -87,11 +87,11 @@ function App() {
                     className="petal-fly"
                     style={{
                       left: `${8 + (i * 8) % 85}%`,
-                      '--duration': `${1.2 + (i % 4) * 0.3}s`,
-                      '--delay':    `${(i % 6) * 0.12}s`,
-                      '--spin':     `${(i % 2 === 0 ? 1 : -1) * (120 + i * 15)}deg`,
                       width: `${3 + (i % 3)}vw`,
-                    }}
+                      animationDuration: `${1.2 + (i % 4) * 0.3}s`,
+                      animationDelay: `${(i % 6) * 0.15}s`,
+                      transform: `rotate(${i * 30}deg)`,  // rotasi awal beda-beda
+                    } as React.CSSProperties}
                     viewBox="0 0 200 250" fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >

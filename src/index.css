@@ -169,14 +169,14 @@
 
 .petal-fly {
   position: absolute;
-  bottom: -10%;
+  bottom: 0;
   pointer-events: none;
-  animation: petal-fly-up var(--duration) ease-out var(--delay) forwards;
   opacity: 0;
+  animation: petal-fly-up 1.5s ease-out forwards;
 }
 
 @keyframes petal-fly-up {
-  0%   { transform: translateY(0)    rotate(0deg)   scale(0.8); opacity: 1; }
+  0%   { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 1; }
   60%  { opacity: 1; }
-  100% { transform: translateY(-110vh) rotate(var(--spin)) scale(1.2); opacity: 0; }
+  100% { transform: translateY(-100vh) rotate(360deg) scale(1.2); opacity: 0; }
 }
