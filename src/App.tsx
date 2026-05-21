@@ -133,7 +133,7 @@ function App() {
             {idx_q === 0 && (
               <div className="flex flex-col question-slide-in">
                 <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
-                  <p className="text-justify font-dune text-[4vw]">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
+                  <p className="text-justify font-dune text-[4vw]">xxxx kedua karakter xx bawah xxx xxxxx siapa yang akan kau xxxxx?</p>
                 </div>
                 <div className="flex gap-10 choices justify-center items-center">
                   <div className="flex flex-col gap-3 active:scale-110" onClick={() => { setGif('nisekoi.gif'); setIdxq(1) }}>
@@ -152,7 +152,7 @@ function App() {
             {idx_q === 1 && (
               <div className="flex flex-col question-slide-in">
                 <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
-                  <p className="text-justify font-dune text-[4vw]">Mana foto yang lebih disukai pacarmu?</p>
+                  <p className="text-justify font-dune text-[4vw]">xxxx foto yang xxxxx xxxxxxx xxxxxxx?</p>
                 </div>
                 <div className="flex gap-10 choices justify-center items-center p-5">
                   <div className="flex flex-col gap-3 active:scale-110" onClick={() => { triggerFlowers(); setIdxq(2) }}>
@@ -169,7 +169,7 @@ function App() {
 
             <div className="flex flex-col justify-center items-center gap-3">
               <img className="w-auto h-[15vh]" src={gif} alt="gif" />
-              <button className="bg-blue-500 p-2" onClick={() => { setGif('patapata.gif'); setIdxq(0); setShowFlowers(false); setUtuh(false) }}>blbl</button>
+              <button className="bg-blue-500 p-2" onClick={() => { setGif('patapata.gif'); setIdxq(0); setShowFlowers(false); setUtuh(false) }}>reset</button>
             </div>
           </div>
           )}
