@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState , useRef, useEffect } from 'react'
 import './index.css'
 
 // Komponen SVG Tulip dengan className (bukan id) agar tidak duplikat
@@ -27,6 +27,17 @@ function App() {
   const [gif, setGif] = useState('patapata.gif')
   const [idx_q, setIdxq] = useState(0)
   const [lose, setLose] = useState('-')
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+
+  useEffect(() => {
+    if (showFlowers) {
+      audioRef.current = new Audio('/hbd.mp3')
+      audioRef.current.play()
+    } else {
+      audioRef.current?.pause()
+      audioRef.current = null
+    }
+  }, [showFlowers])
 
   const handleClick = () => {
     setTransition(true)
@@ -133,7 +144,7 @@ function App() {
             {idx_q === 0 && (
               <div className="flex flex-col question-slide-in">
                 <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
-                  <p className="text-justify font-dune text-[4vw]">xxxx kedua karakter xx bawah xxx xxxxx siapa yang akan kau xxxxx?</p>
+                  <p className="text-justify font-dune text-[4vw]">Jika kedua karakter di bawah ini nyata siapa yang akan kau pilih?</p>
                 </div>
                 <div className="flex gap-10 choices justify-center items-center">
                   <div className="flex flex-col gap-3 active:scale-110" onClick={() => { setGif('nisekoi.gif'); setIdxq(1) }}>
@@ -152,7 +163,7 @@ function App() {
             {idx_q === 1 && (
               <div className="flex flex-col question-slide-in">
                 <div className="justify-center items-center border-black border-[2px] p-5 rounded-[10px] w-[90vw] h-auto">
-                  <p className="text-justify font-dune text-[4vw]">xxxx foto yang xxxxx xxxxxxx xxxxxxx?</p>
+                  <p className="text-justify font-dune text-[4vw]">Mana foto yang lebih disukai Hawari?</p>
                 </div>
                 <div className="flex gap-10 choices justify-center items-center p-5">
                   <div className="flex flex-col gap-3 active:scale-110" onClick={() => { triggerFlowers(); setIdxq(2) }}>
@@ -169,7 +180,7 @@ function App() {
 
             <div className="flex flex-col justify-center items-center gap-3">
               <img className="w-auto h-[15vh]" src={gif} alt="gif" />
-              <button className="bg-blue-500 p-2" onClick={() => { setGif('patapata.gif'); setIdxq(0); setShowFlowers(false); setUtuh(false) }}>reset</button>
+              <button className="bg-blue-500 p-2 opacity-0" onClick={() => { setGif('patapata.gif'); setIdxq(0); setShowFlowers(false); setUtuh(false) }}>reset</button>
             </div>
           </div>
           )}
@@ -182,7 +193,7 @@ function App() {
           <div className="flex flex-col justify-center items-center w-full h-full p-3">
             <h1 className="text-[10vw]">YOU LOSE!!!!!!</h1>
             <img className="w-auto h-[15vh]" src="amogus.gif" alt="amogus" />
-            <button className="bg-blue-500 p-2" onClick={() => { setGif('patapata.gif'); setIdxq(0); setLose('-'); setShowFlowers(false); setUtuh(false) }}>Reset?</button>
+            <button className="bg-blue-500 p-2 opacity-0" onClick={() => { setGif('patapata.gif'); setIdxq(0); setLose('-'); setShowFlowers(false); setUtuh(false) }}>Reset?</button>
           </div>
         </div>
       )}
