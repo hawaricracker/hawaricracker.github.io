@@ -180,7 +180,7 @@ function App() {
 
             <div className="flex flex-col justify-center items-center gap-3">
               <img className="w-auto h-[15vh]" src={gif} alt="gif" />
-              <button className="bg-blue-500 p-2 opacity-0" onClick={() => { setGif('patapata.gif'); setIdxq(0); setShowFlowers(false); setUtuh(false) }}>reset</button>
+              <button className="bg-blue-500 p-2 hidden" onClick={() => { setGif('patapata.gif'); setIdxq(0); setShowFlowers(false); setUtuh(false) }}>reset</button>
             </div>
           </div>
           )}
@@ -193,7 +193,7 @@ function App() {
           <div className="flex flex-col justify-center items-center w-full h-full p-3">
             <h1 className="text-[10vw]">YOU LOSE!!!!!!</h1>
             <img className="w-auto h-[15vh]" src="amogus.gif" alt="amogus" />
-            <button className="bg-blue-500 p-2 opacity-0" onClick={() => { setGif('patapata.gif'); setIdxq(0); setLose('-'); setShowFlowers(false); setUtuh(false) }}>Reset?</button>
+            <button className="bg-blue-500 p-2" onClick={() => { setGif('patapata.gif'); setIdxq(0); setLose('-'); setShowFlowers(false); setUtuh(false) }}>Reset?</button>
           </div>
         </div>
       )}
